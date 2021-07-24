@@ -34,17 +34,10 @@ Resources:
         Password: !Ref 'Password'
   MyUserGroup:
     Type: AWS::IAM::Group
-  MyAdminGroup:
-    Type: AWS::IAM::Group
   Users:
     Type: AWS::IAM::UserToGroupAddition
     Properties:
       GroupName: !Ref 'MyUserGroup'
-      Users: [!Ref 'MyUser']
-  Admins:
-    Type: AWS::IAM::UserToGroupAddition
-    Properties:
-      GroupName: !Ref 'MyAdminGroup'
       Users: [!Ref 'MyUser']
   MyUserPolicies:
     Type: AWS::IAM::Policy
@@ -56,16 +49,6 @@ Resources:
           Action: ['cloudformation:Describe*', 'cloudformation:List*', 'cloudformation:Get*']
           Resource: '*'
       Groups: [!Ref 'MyUserGroup']
-  MyAdminPolicies:
-    Type: AWS::IAM::Policy
-    Properties:
-      PolicyName: MyAdmins
-      PolicyDocument:
-        Statement:
-        - Effect: Allow
-          Action: cloudformation:*
-          Resource: '*'
-      Groups: [!Ref 'MyAdminGroup']
   MyKeys:
     Type: AWS::IAM::AccessKey
     Properties:
