@@ -45,4 +45,5 @@ Create stack using below command
 
 ```
 $ aws cloudformation create-stack --stack-name prod --template-body file://main.yml --capabilities CAPABILITY_NAMED_IAM
+$ aws cloudformation delete-stack --stack-name prod
 ```
