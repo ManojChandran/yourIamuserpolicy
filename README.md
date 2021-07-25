@@ -41,7 +41,7 @@ $ git clone https://github.com/ManojChandran/yourIamuserpolicy.git
 ```
 ## RUN Template
 
-Create stack using below command
+Validate and Create stack using below command
 
 ```
 $ aws cloudformation validate-template --template-body file://main.yml
